@@ -7,18 +7,28 @@ public class LoginPage {
     private final SelenideElement loginFormEmail = $("input[type='email']");
     private final SelenideElement loginFormPassword = $("input[type='password']");
     private final SelenideElement loginFormButton = $("button[type='submit']");
+    private final SelenideElement loginErrorText = $(".swal-text");
 
+    //methods
     public void openLoginPage() {
         open("http://localhost:3000");
     }
 
-    public void fillEmailWithValidData() {
+    public void clearEmail() {
         loginFormEmail.clear();
+    }
+
+    public void clearPassword() {
+        loginFormPassword.clear();
+    }
+
+    public void fillEmailWithValidData() {
+        clearEmail();
         loginFormEmail.sendKeys("admin@mail.com");
     }
 
     public void fillPasswordWithValidData() {
-        loginFormPassword.clear();
+        clearPassword();
         loginFormPassword.sendKeys("password");
     }
 
@@ -26,4 +36,9 @@ public class LoginPage {
         loginFormButton.click();
     }
 
+    //getters
+
+    public SelenideElement getLoginErrorText() {
+        return loginErrorText;
+    }
 }
