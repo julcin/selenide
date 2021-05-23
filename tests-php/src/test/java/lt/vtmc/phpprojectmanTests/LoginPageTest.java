@@ -16,7 +16,7 @@ public class LoginPageTest {
     @Before
     public void setupLoginPage() {
 //        Configuration.headless = true;
-        login.openLoginPage();
+        navigation.openLoginPage();
     }
 
     @Test
