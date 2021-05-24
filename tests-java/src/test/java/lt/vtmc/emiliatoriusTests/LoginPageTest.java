@@ -36,7 +36,7 @@ public class LoginPageTest {
         navigation.getPageNavName().should(Condition.matchText("Emiliatorius'3"));
     }
 
-    //does not work, element is not displayed, but if i click manually it is displayed
+    does not work, element is not displayed, but if i click manually it is displayed
     @Test
     public void validateUsernameAfterLogin() {
         userCanLoginWithValidData();
@@ -50,7 +50,7 @@ public class LoginPageTest {
         login.clearPassword();
         login.clickSignInButton();
         System.out.println($(".swal-text"));
-        login.getLoginErrorText().shouldHave(Condition.text("bad email or password"));
+        login.getLoginErrorText().shouldHave(Condition.text("Bad email or password!"));
     }
 
 

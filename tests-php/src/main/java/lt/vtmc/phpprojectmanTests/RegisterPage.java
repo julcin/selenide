@@ -1,10 +1,9 @@
 package lt.vtmc.phpprojectmanTests;
 
 import com.codeborne.selenide.*;
+import static com.codeborne.selenide.Selenide.*;
 
 import java.util.Random;
-
-import static com.codeborne.selenide.Selenide.*;
 
 public class RegisterPage {
     private final SelenideElement registerFormUsername = $("#username");
