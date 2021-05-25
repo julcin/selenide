@@ -20,12 +20,12 @@ public class ProjectsCreateTest {
         login.fillEmailWithValidData();
         login.fillPasswordWithValidData();
         login.clickSignInButton();
-        navigation.clickProjectsButton();
+        navigation.clickProjectsLink();
     }
 
     @Test
     public void userCanCreateProject() {
-        navigation.clickProjectsButton();
+        navigation.clickProjectsLink();
         projectPage.clickCreateProjectButton();
         projectCreate.fillProjectNameWithValidData();
         projectCreate.fillProjectDescriptionWithValidData();
@@ -37,7 +37,7 @@ public class ProjectsCreateTest {
 
     @Test
     public void userCanNotCreateProjectWithoutName() {
-        navigation.clickProjectsButton();
+        navigation.clickProjectsLink();
         projectPage.clickCreateProjectButton();
         projectCreate.clearProjectName();
         projectCreate.fillProjectDescriptionWithValidData();
@@ -47,7 +47,7 @@ public class ProjectsCreateTest {
 
     @Test
     public void userCanNotCreateProjectWithoutDescription() {
-        navigation.clickProjectsButton();
+        navigation.clickProjectsLink();
         projectPage.clickCreateProjectButton();
         projectCreate.fillProjectNameWithValidData();
         projectCreate.clearProjectDescription();
@@ -57,7 +57,7 @@ public class ProjectsCreateTest {
 
     @Test
     public void userCanNotCreateProjectWithoutNameAndDescription() {
-        navigation.clickProjectsButton();
+        navigation.clickProjectsLink();
         projectPage.clickCreateProjectButton();
         projectCreate.clearProjectName();
         projectCreate.clearProjectDescription();
@@ -69,7 +69,7 @@ public class ProjectsCreateTest {
     @Test
     public void userCanNotCreateProjectWithSameName() {
         userCanCreateProject();
-        navigation.clickProjectsButton();
+        navigation.clickProjectsLink();
         projectPage.clickCreateProjectButton();
         projectCreate.fillProjectNameWithValidData();
         projectCreate.fillProjectDescriptionWithValidData();
@@ -79,7 +79,7 @@ public class ProjectsCreateTest {
 
     @Test
     public void userCanNotCreateLongNameProject() {
-        navigation.clickProjectsButton();
+        navigation.clickProjectsLink();
         projectPage.clickCreateProjectButton();
         projectCreate.fillProjectNameWithLongValue();
         projectCreate.fillProjectDescriptionWithValidData();

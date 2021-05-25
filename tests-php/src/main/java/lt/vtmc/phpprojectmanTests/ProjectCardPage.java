@@ -9,15 +9,16 @@ public class ProjectCardPage {
     private final ElementsCollection projectCardNames = $$(".card h4");
     private final ElementsCollection projectCardDescriptions = $$(".card-text");
     private final ElementsCollection projectCardStates = $$(".card-header div");
-    private final SelenideElement projectCardExpanded = $(By.className("collapse show"));
+    private final SelenideElement projectCardExpanded = $(By.className("card-text"));
 
     //filling and clearing
 
-
     //clicks
     public void clickFirstProject() {
+//        executeJavaScript("arguments[0].click();", projectCardNames.get(0));
         projectCardNames.get(0).click();
     }
+
 
     //getters
 

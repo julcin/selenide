@@ -16,13 +16,11 @@ public class NavigationPage {
 
     //methods
     public void openLoginPage() {
-        open("http://lieta.lt");
-        loginPageButton.click();
+        open("http://lieta.lt/login");
     }
 
     public void openRegisterPage() {
-        open("http://lieta.lt");
-        registerPageButton.click();
+        open("http://lieta.lt/register");
     }
 
     public void openProjectsLink() {
@@ -30,8 +28,8 @@ public class NavigationPage {
     }
 
     //click methods
-    public void clickProjectsButton() {
-        projectsButton.click();
+    public void clickProjectsLink() {
+        open("http://lieta.lt/projects");
     }
 
     public void logout() {
