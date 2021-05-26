@@ -1,6 +1,7 @@
 package lt.vtmc.phpprojectmanTests;
 
 import com.codeborne.selenide.Condition;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,16 +17,24 @@ public class ProjectsCreateTest {
     @Before
     public void setupProjectsPage() {
 //        Configuration.headless = true;
+//        Configuration.clickViaJs = true;
         navigation.openLoginPage();
         login.fillEmailWithValidData();
         login.fillPasswordWithValidData();
         login.clickSignInButton();
-        navigation.clickProjectsLink();
+        navigation.getUserName().shouldHave(Condition.text("labas"));
+        navigation.openProjectsLink();
+    }
+
+    @After
+    public void logoutIfLogged() {
+        if(navigation.getUserName().has(Condition.text("labas"))) {
+            navigation.logout();
+        }
     }
 
     @Test
     public void userCanCreateProject() {
-        navigation.clickProjectsLink();
         projectPage.clickCreateProjectButton();
         projectCreate.fillProjectNameWithValidData();
         projectCreate.fillProjectDescriptionWithValidData();
