@@ -49,17 +49,42 @@ public class ProjectsPageTest {
         while(!projectCards.getProjectCardExpanded().isDisplayed()) {
             projectCards.clickFirstProject();
         }
-
         //first expanded card should have visible description
         projectCards.getProjectCardDescriptions().get(0).shouldBe(Condition.visible);
     }
 
-    //need age updates
-//    @Test
-//    public void checkIfStateIsVisible() {
-//        navigation.clickProjectsButton();
-//        System.out.println();
-//    }
+    @Test
+    public void checkIfStateIsVisible() {
+        int i=0;
+        projectCards.getProjectCardStates().get(0).shouldBe(Condition.visible);
+        while(projectCards.getProjectCardStates().get(i).exists()) {
+            //state can be "In Progress" or "Done"
+            projectCards.getProjectCardStates().get(i).shouldHave(Condition.or("StateIsOk",(Condition.text("In Progress")), (Condition.text("Done"))));
+            i++;
+        }
+    }
+
+    @Test
+    public void checkIfAssignedTasksVisible() {
+        int i=0;
+        projectCards.getProjectCardTasksAssigned().get(0).shouldBe(Condition.visible);
+        while(projectCards.getProjectCardTasksAssigned().get(i).exists()) {
+            //state can be "In Progress" or "Done"
+            projectCards.getProjectCardTasksAssigned().get(i).shouldBe(Condition.visible);
+            i++;
+        }
+    }
+
+    @Test
+    public void checkIfUnfinishedTasksVisible() {
+        int i=0;
+        projectCards.getProjectCardSTasksLeft().get(0).shouldBe(Condition.visible);
+        while(projectCards.getProjectCardSTasksLeft().get(i).exists()) {
+            //state can be "In Progress" or "Done"
+            projectCards.getProjectCardSTasksLeft().get(i).shouldBe(Condition.visible);
+            i++;
+        }
+    }
 
     @Test
     public void checkIfProjectListExists() {
