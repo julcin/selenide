@@ -1,13 +1,9 @@
 package lt.vtmc.emiliatoriusTests;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.conditions.Text;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.junit.TextReport;
+import org.junit.*;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
@@ -18,31 +14,14 @@ public class LoginPageTest {
     NavPage navigation = new NavPage();
     ProjectsPage projects = new ProjectsPage();
 
+    @Rule
+    public TextReport textReport = new TextReport();
+
     @Before
     public void setupLoginPage() {
-//        Configuration.headless = true;
+        Configuration.headless = true;
         login.openLoginPage();
     }
-
-
-//    @Before
-//    public void setupProjectsPage() {
-////        Configuration.headless = true;
-////        Configuration.clickViaJs = true;
-//        navigation.openLoginPage();
-//        login.fillEmailWithValidData();
-//        login.fillPasswordWithValidData();
-//        login.clickSignInButton();
-//        navigation.getUserName().shouldHave(Condition.text("labas"));
-//        navigation.openProjectsLink();
-//    }
-//
-//    @After
-//    public void logoutIfLogged() {
-//        if(navigation.getUserName().has(Condition.text("labas"))) {
-//            navigation.logout();
-//        }
-//    }
 
     @Test
     public void userCanLoginWithValidData() {

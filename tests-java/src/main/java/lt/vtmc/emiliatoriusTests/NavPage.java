@@ -1,7 +1,6 @@
 package lt.vtmc.emiliatoriusTests;
 
 import com.codeborne.selenide.*;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -12,7 +11,6 @@ public class NavPage {
     private final SelenideElement userName = $$(".dropdown-item").get(0);
     private final SelenideElement logoutButton = $$(".dropdown-item").get(1);
 
-    //methods
     //navigating
     public void signOut() {
         clickNavButton();
