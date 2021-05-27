@@ -1,6 +1,7 @@
 package lt.vtmc.emiliatoriusTests;
 
 import com.codeborne.selenide.*;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage {
@@ -9,7 +10,6 @@ public class LoginPage {
     private final SelenideElement loginFormButton = $("button[type='submit']");
     private final SelenideElement loginErrorText = $(".swal-text");
 
-    //methods
     //navigating
     public void openLoginPage() {
         open("http://localhost:3000");
