@@ -26,7 +26,8 @@ public class ProjectsPageTest {
     @Test
     public void checkIfProjectCardsVisible() {
         int i = 0;
-        projects.getProjectCards().get(i).shouldBe(Condition.visible);
+        //wait for cards to appear
+        projects.getProjectCards().get(i).shouldBe(Condition.exist);
         while(projects.getProjectCards().get(i).exists()) {
             projects.getProjectCards().get(i).shouldBe(Condition.visible);
             i++;

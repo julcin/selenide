@@ -14,7 +14,7 @@ public class NavigationPage {
     private final SelenideElement pageNavName = $("nav h1");
     private final SelenideElement userName = $("nav p");
 
-    //methods
+    //navigation
     public void openLoginPage() {
         open("http://lieta.lt/login");
     }
@@ -27,7 +27,7 @@ public class NavigationPage {
         open("http://lieta.lt/projects");
     }
 
-    //click methods
+    //clicks
     public void clickProjectsLink() {
         open("http://lieta.lt/projects");
     }

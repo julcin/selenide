@@ -13,14 +13,10 @@ public class ProjectCardPage {
     private final ElementsCollection projectCardSTasksLeft = $$(By.className("project-unfinished-tasks"));
     private final SelenideElement projectCardExpanded = $(By.className("card-text"));
 
-    //filling and clearing
-
     //clicks
     public void clickFirstProject() {
-//        executeJavaScript("arguments[0].click();", projectCardNames.get(0));
         projectCardNames.get(0).click();
     }
-
 
     //getters
     public ElementsCollection getProjectCardNames() {
@@ -31,11 +27,17 @@ public class ProjectCardPage {
         return projectCardDescriptions;
     }
 
-    public ElementsCollection getProjectCardStates() { return projectCardStates; }
+    public ElementsCollection getProjectCardStates() {
+        return projectCardStates;
+    }
 
-    public ElementsCollection getProjectCardTasksAssigned() { return projectCardTasksAssigned; }
+    public ElementsCollection getProjectCardTasksAssigned() {
+        return projectCardTasksAssigned;
+    }
 
-    public ElementsCollection getProjectCardSTasksLeft() { return projectCardSTasksLeft; }
+    public ElementsCollection getProjectCardSTasksLeft() {
+        return projectCardSTasksLeft;
+    }
 
     public SelenideElement getProjectCardExpanded() {
         return projectCardExpanded;

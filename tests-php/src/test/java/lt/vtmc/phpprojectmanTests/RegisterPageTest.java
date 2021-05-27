@@ -1,20 +1,26 @@
 package lt.vtmc.phpprojectmanTests;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.junit.TextReport;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class RegisterPageTest {
 
+    @Rule
+    public TextReport textReport = new TextReport();
+
     NavigationPage navigation = new NavigationPage();
     RegisterPage registration = new RegisterPage();
 
     @Before
     public void setupRegisterPage() {
-//        Configuration.headless = true;
+        Configuration.headless = true;
         navigation.openRegisterPage();
     }
 

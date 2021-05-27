@@ -1,6 +1,7 @@
 package lt.vtmc.phpprojectmanTests;
 
 import com.codeborne.selenide.*;
+
 import static com.codeborne.selenide.Selenide.*;
 
 import java.util.Random;
@@ -11,15 +12,10 @@ public class RegisterPage {
     private final SelenideElement registerFormPassword = $("#password");
     private final SelenideElement registerFormConfirmPassword = $("#confirm_password");
     private final SelenideElement registerFormButton = $("button[type='submit']");
-    //The given data was invalid.
     private final SelenideElement registerCommonError = $("small[type='invalid']");
-    //Please provide a valid e-mail address!
     private final SelenideElement registerEmailError = $$(".invalid-feedback").get(0);
-    //Password must be have minimum 8 characters length and contain at least one uppercase letter, one lowercase letter, one number and one of ~!@#$%^&*?- characters!
     private final SelenideElement registerPasswordError = $$(".invalid-feedback").get(1);
-    //Confirmation password must be the same as password above!
     private final SelenideElement registerPasswordConfirmError = $$(".invalid-feedback").get(2);
-    //for background-image css property inside form
     private final String backgroundImageUrlOk = "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3E%3C/svg%3E\")";
     private final String backgroundImageUrlError = "url(\"data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545'%3E%3Ccircle cx='6' cy='6' r='4.5'/%3E%3Cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3E%3Ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3E%3C/svg%3E\")";
 
@@ -79,8 +75,6 @@ public class RegisterPage {
     }
 
     //getters
-
-
     public SelenideElement getRegisterFormUsername() {
         return registerFormUsername;
     }

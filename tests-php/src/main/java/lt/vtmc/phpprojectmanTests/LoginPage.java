@@ -1,6 +1,7 @@
 package lt.vtmc.phpprojectmanTests;
 
 import com.codeborne.selenide.*;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage {
@@ -46,9 +47,15 @@ public class LoginPage {
     }
 
     //getters
-    public SelenideElement getLoginEmailError() { return loginEmailError; }
+    public SelenideElement getLoginEmailError() {
+        return loginEmailError;
+    }
 
-    public SelenideElement getLoginPasswordError() { return loginPasswordError; }
+    public SelenideElement getLoginPasswordError() {
+        return loginPasswordError;
+    }
 
-    public SelenideElement getLoginCommonError() { return loginCommonError; }
+    public SelenideElement getLoginCommonError() {
+        return loginCommonError;
+    }
 }

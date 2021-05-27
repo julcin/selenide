@@ -1,11 +1,17 @@
 package lt.vtmc.phpprojectmanTests;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.junit.TextReport;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 public class ProjectsCreateTest {
+
+    @Rule
+    public TextReport textReport = new TextReport();
 
     LoginPage login = new LoginPage();
     NavigationPage navigation = new NavigationPage();
@@ -16,8 +22,7 @@ public class ProjectsCreateTest {
 
     @Before
     public void setupProjectsPage() {
-//        Configuration.headless = true;
-//        Configuration.clickViaJs = true;
+        Configuration.headless = true;
         navigation.openLoginPage();
         login.fillEmailWithValidData();
         login.fillPasswordWithValidData();
@@ -28,7 +33,7 @@ public class ProjectsCreateTest {
 
     @After
     public void logoutIfLogged() {
-        if(navigation.getUserName().has(Condition.text("labas"))) {
+        if (navigation.getUserName().has(Condition.text("labas"))) {
             navigation.logout();
         }
     }

@@ -2,14 +2,18 @@ package lt.vtmc.phpprojectmanTests;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.junit.TextReport;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import com.codeborne.selenide.*;
 
-import static com.codeborne.selenide.Selenide.$$;
-
 public class ProjectsPageTest {
+
+    @Rule
+    public TextReport textReport = new TextReport();
 
     LoginPage login = new LoginPage();
     NavigationPage navigation = new NavigationPage();
@@ -18,8 +22,7 @@ public class ProjectsPageTest {
 
     @Before
     public void setupProjectsPage() {
-//        Configuration.headless = true;
-//        Configuration.clickViaJs = true;
+        Configuration.headless = true;
         navigation.openLoginPage();
         login.fillEmailWithValidData();
         login.fillPasswordWithValidData();
@@ -30,7 +33,7 @@ public class ProjectsPageTest {
 
     @After
     public void logoutIfLogged() {
-        if(navigation.getUserName().has(Condition.text("labas"))) {
+        if (navigation.getUserName().has(Condition.text("labas"))) {
             navigation.logout();
         }
     }
@@ -46,7 +49,7 @@ public class ProjectsPageTest {
     public void checkIfProjectDescriptionExist() {
         //check if no project card is expanded and expand first if true
         //this is temporary solution, needs fixing
-        while(!projectCards.getProjectCardExpanded().isDisplayed()) {
+        while (!projectCards.getProjectCardExpanded().isDisplayed()) {
             projectCards.clickFirstProject();
         }
         //first expanded card should have visible description
@@ -55,20 +58,20 @@ public class ProjectsPageTest {
 
     @Test
     public void checkIfStateIsVisible() {
-        int i=0;
+        int i = 0;
         projectCards.getProjectCardStates().get(0).shouldBe(Condition.visible);
-        while(projectCards.getProjectCardStates().get(i).exists()) {
+        while (projectCards.getProjectCardStates().get(i).exists()) {
             //state can be "In Progress" or "Done"
-            projectCards.getProjectCardStates().get(i).shouldHave(Condition.or("StateIsOk",(Condition.text("In Progress")), (Condition.text("Done"))));
+            projectCards.getProjectCardStates().get(i).shouldHave(Condition.or("StateIsOk", (Condition.text("In Progress")), (Condition.text("Done"))));
             i++;
         }
     }
 
     @Test
     public void checkIfAssignedTasksVisible() {
-        int i=0;
+        int i = 0;
         projectCards.getProjectCardTasksAssigned().get(0).shouldBe(Condition.visible);
-        while(projectCards.getProjectCardTasksAssigned().get(i).exists()) {
+        while (projectCards.getProjectCardTasksAssigned().get(i).exists()) {
             //state can be "In Progress" or "Done"
             projectCards.getProjectCardTasksAssigned().get(i).shouldBe(Condition.visible);
             i++;
@@ -77,9 +80,9 @@ public class ProjectsPageTest {
 
     @Test
     public void checkIfUnfinishedTasksVisible() {
-        int i=0;
+        int i = 0;
         projectCards.getProjectCardSTasksLeft().get(0).shouldBe(Condition.visible);
-        while(projectCards.getProjectCardSTasksLeft().get(i).exists()) {
+        while (projectCards.getProjectCardSTasksLeft().get(i).exists()) {
             //state can be "In Progress" or "Done"
             projectCards.getProjectCardSTasksLeft().get(i).shouldBe(Condition.visible);
             i++;

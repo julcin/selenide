@@ -46,10 +46,12 @@ public class ProjectCreatePage {
         createProjectDescription.clear();
     }
 
-
     //clicks
     public void clickCreateProjectButton() {
-        createProjectButton.click();
+        if (!nameError.isDisplayed() || !nameTakenError.isDisplayed() || !nameTooLongError.isDisplayed() ||
+                !descriptionError.isDisplayed() || !successAlert.isDisplayed()) {
+            createProjectButton.click();
+        }
     }
 
     public void clickGoToProjectButton() {

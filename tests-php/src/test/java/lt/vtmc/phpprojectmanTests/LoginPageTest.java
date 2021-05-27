@@ -1,8 +1,11 @@
 package lt.vtmc.phpprojectmanTests;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.junit.TextReport;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -10,12 +13,15 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class LoginPageTest {
 
+    @Rule
+    public TextReport textReport = new TextReport();
+
     LoginPage login = new LoginPage();
     NavigationPage navigation = new NavigationPage();
 
     @Before
     public void setupLoginPage() {
-//        Configuration.headless = true;
+        Configuration.headless = true;
         navigation.openLoginPage();
     }
 
